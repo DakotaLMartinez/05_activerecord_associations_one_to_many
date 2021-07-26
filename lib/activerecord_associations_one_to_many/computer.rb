@@ -1,4 +1,5 @@
 class Computer < ActiveRecord::Base
+  has_many :issues
 
   def sleep
     update(asleep: true)

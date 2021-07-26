@@ -20,6 +20,10 @@ RSpec.describe "Segment 2 - Exercise" do
         expect(column.sql_type_metadata.type).to eq(type)
       end
     end
+
+    it "belongs to a computer" do 
+      expect(Issue.new).to respond_to(:computer)
+    end
   end
 
   

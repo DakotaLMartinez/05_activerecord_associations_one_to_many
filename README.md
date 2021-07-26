@@ -40,7 +40,7 @@
 1. Create an `issues` table with the following columns:
 
 - title (string)
-- description (string)
+- description (text)
 - resolved (boolean)
 - started_at (datetime)
 - computer (belongs_to)
