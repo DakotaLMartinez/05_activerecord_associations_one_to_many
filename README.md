@@ -30,90 +30,59 @@
 
 ...
 
-## Demonstration
+## Help me build this out
 
 - Create `Walk` model and associated `walks` table
 - open up `./bin/console` and do create a couple of dogs.
 
-## Task 1
+## Task 1 - belongs_to
 
-1. Create a `computers` table with the following columns:
+1. Create an `issues` table with the following columns:
 
-- brand (string)
-- model (string)
-- screen_size (float)
-- model_year (integer)
-- asleep (boolean)
-- last_backed_up_at (datetime)
+- title (string)
+- description (string)
+- resolved (boolean)
+- started_at (datetime)
+- computer (belongs_to)
 
-2. In `lib/computer.rb`, create a `Computer` class that inherits from `ActiveRecord::Base` 
+2. In `lib/issue.rb`, create an `Issue` class that inherits from `ActiveRecord::Base` 
 
-3. In `lib/exercises.rb` fill in the `first_computer` and `second_computer` methods so that they both return computers with `brand`, `model`, `screen_size` and `model_year` properties assigned.
+3. Use an ActiveRecord association macro to create a relationship between an issue and a computer. Which type of relationship should you add here?
+
+4. Enter `./bin/console` and create a couple of issues for the `first_computer`. Use Sqlite Explorer to check your database to ensure the issues are created.
 
 ### Discussion Questions
-#### How did you create the computers table? 
+#### How did you create the issues table? 
 
 ...
 
-#### Why do we write database changes to a file instead of using SQL to update the structure of the database?
+#### How would you describe the relationship between an issue and a computer?
 
 ...
-#### How is the Computer class connected to the computers table?
-
-...
-
-#### Why do migration file names start with a number?
+#### When you use the association method to access the related computer, what does the SQL query look like?
 
 ...
 
-#### What else is important about migration file names?
+
+## Help me build this out
+
+- Finish adding the one-to-many relationship between `Dog <== Walk`
+
+
+## Task 2 - has_many
+
+1. Update the Computer class to add an ActiveRecord association method that relates the Computer model to the Issue model.
+
+2. Open up `./bin/console` and use it to create an issue for a computer and then access that computer and view all of its issues. Confirm that you're able to call a method on either the issue or the computer and see the other object in the return value.
+
+### Discussion Questions
+
+#### What are the database requirements for a has_many relationship? 
 
 ...
-
-#### What is an ORM and why do we need/want one?
-
-...
-
-#### What is rake and what is it used for?
-
-## Demonstration - Updating and Deleting Dogs
-
-For this, let's open up `./bin/console` and attempt the following:
-### Find an existing `dog` 
-
-```rb
-```
-### Update the dog's age
-
-```rb
-```
-### Delete the dog
-
-```rb
-```
-### Try to find the dog again to demonstrate it has been deleted
-
-```rb
-```
-
-
-## Task 2
-
-1. Define a `back_up` method within the computer class that updates the `last_backed_up_at` attribute of the computer to the current date and time.
-
-2. Define a `sleep` method within the computer class that updates the `asleep` attribute of the computer to `true`.
-
-3. Define a `wake_up` method within the computer class that updates the `asleep` attribute of the computer to `false`.
-
-4. Define a `backed_up` method within the computer class that returns all of the computers that have been backed_up.
-
-
-### What is the main purpose of ActiveRecord in our application?
+#### What about the belongs_to relationship?
 
 ...
-### What would we have to do in our application if we didn't have something like ActiveRecord?
-
-...
-### What are some potential downsides of using ActiveRecord?
+#### What other examples of one-to-many relationships can you think of?
 
 ...
